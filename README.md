@@ -211,7 +211,7 @@ The SPA uses zero build tools.
 
 4. **Production Server Simulation:**
    ```bash
-   gunicorn app:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+   gunicorn app:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --timeout 120 --bind 0.0.0.0:8000
    ```
 
 ### 5.2 Production Deployment (Render)
@@ -227,4 +227,4 @@ ClaimSense ships with a `render.yaml` for infrastructure-as-code deployment on R
 
 **Manual Build & Start Commands (if not using blueprint):**
 - **Build Command:** `pip install -r requirements.txt`
-- **Start Command:** `gunicorn app:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT`
+- **Start Command:** `gunicorn app:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --timeout 120 --bind 0.0.0.0:$PORT`
