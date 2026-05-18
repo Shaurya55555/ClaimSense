@@ -2,6 +2,9 @@
 
 ClaimSense is an AI-augmented claims processing platform that automates the lifecycle of a First Notice of Loss (FNOL) document. It uses a strict decoupling pattern: **probabilistic inference (AI) for data extraction** and **deterministic rules (pure code) for decision routing**.
 
+> **⚠️ IMPORTANT: API Key Expiration**
+> If you are testing the live demo or running this project locally and the document analysis fails, the free-tier NVIDIA NIM API key has likely expired or hit its limit. To run and test the application, please use your own NVIDIA API key. Check the [Deployment Guide](#5-deployment-guide) below for instructions on where to add it.
+
 This document outlines the system architecture, component workflows, API specifications, and deployment protocols.
 
 ---

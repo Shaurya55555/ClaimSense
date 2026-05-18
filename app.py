@@ -128,7 +128,7 @@ async def process_claim(file: UploadFile = File(...)):
         return final_output.model_dump()
 
     except RuntimeError as e:
-        raise HTTPException(status_code=502, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
     finally:

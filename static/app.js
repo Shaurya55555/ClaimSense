@@ -179,8 +179,15 @@
             await delay(200);
 
             if (!response.ok) {
-                const err = await response.json();
-                throw new Error(err.detail || 'Processing failed');
+                let errText = await response.text();
+                let errMsg = 'Processing failed';
+                try {
+                    const errJson = JSON.parse(errText);
+                    errMsg = errJson.detail || errMsg;
+                } catch (e) {
+                    errMsg = `Server Error (${response.status}): ${errText.slice(0, 50) || 'Empty response'}`;
+                }
+                throw new Error(errMsg);
             }
 
             const data = await response.json();
